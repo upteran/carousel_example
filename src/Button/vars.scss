@@ -1,0 +1,80 @@
+@mixin rounded_corners($radius) {
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+$white: #fff;
+$black: #000;
+$gold: #ffd000;
+$bronze: #cd7f32;
+$green: #00b119;
+$blue: #0065e3;
+$gray-text: #868686;
+$silver: #9d9d9d;
+$gray: #525252;
+$asphalt: #222222;
+$nero: #1d1d1d;
+$black: #000000;
+$orange: #d22e1b;
+$red: #e80012;
+$olive: #5e4b00;
+$gray-dark: #3a3a3a;
+$grayish: #adadad;
+$gray-light: #737373;
+$dim-gray: #656565;
+$black-two: #1a1a1a;
+$black-three: #0d0d0d;
+$brown-light: #e1ddd7;
+$sunflower-yellow-two: #ffdb00;
+$greyish-brown-two: #545454;
+$super-gray: #999999;
+$dropdown-bg-active: #181818;
+
+@mixin button-color($bg, $color, $bgHover, $border: $bg) {
+  background: $bg;
+  color: $color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $border;
+  transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  &:hover,
+  &:focus {
+    background: $bgHover;
+    border-color: $bgHover;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+}
+@mixin button-actions($hover, $active, $disabled) {
+  &:hover,
+  &:focus {
+    background: $hover;
+    border-color: $hover;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+  &:active {
+    background: $active;
+    border-color: $active;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+  &.disabled {
+    background: $disabled;
+    border-color: $disabled;
+    color: $gray-text;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+}
+@mixin button($bg, $color, $bgHover, $colorHover, $border, $borderHover) {
+  background: $bg;
+  color: $color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $border;
+  transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  &:hover,
+  &:focus {
+    background: $bgHover;
+    color: $colorHover;
+    border-color: $borderHover;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+}

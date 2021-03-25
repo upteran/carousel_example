@@ -1,0 +1,110 @@
+.carouselList {
+  display: flex;
+  flex-wrap: nowrap;
+  margin: 12px 0;
+  -webkit-overflow-scrolling: touch;
+  * {
+    pointer-events: none;
+  }
+}
+
+.isAnimatedTray {
+  -webkit-transition: -webkit-transform 0.6s cubic-bezier(0.43, -0.01, 0.54, 0.99);
+  transition: transform 0.6s cubic-bezier(0.43, -0.01, 0.54, 0.99);
+  will-change: transform;
+    * {
+      pointer-events: auto!important;
+    }
+}
+
+.sliderOuter {
+  max-width: 100%;
+  overflow: hidden;
+}
+.scroll {
+  &Content {
+    display: flex;
+    margin: 15px 0;
+  }
+  :first-child {
+    scrollbar-width: none;
+  }
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.arrowsBtnGroup {
+  position: relative;
+  width: 80px;
+  display: flex;
+  color: gray;
+  background: nero;
+  animation: fadeIn ease-out .25s;
+  &:before {
+    content: '';
+    width: 1px;
+    height: 50%;
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: gray;
+  }
+}
+
+button {
+  &.arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 40px;
+    color: green;
+    transition: all .25s ease-out;
+    &[disabled] {
+      opacity: .5;
+      cursor: default;
+      transition: opacity .25s ease-out;
+    }
+  }
+}
+
+.arrowLeft {
+  composes: arrow;
+  border-radius: 6px 0 0 6px!important;
+}
+
+.arrowRight {
+  composes: arrow;
+  border-radius: 0 6px 6px 0!important;
+}
+
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// @media (max-width: $tablet - 1px) {
+//   .sectionCarousel {
+//     overflow: hidden;
+//     max-width: 100%;
+//   }
+//   .sliderOuter {
+//     overflow: visible;
+//   }
+// }

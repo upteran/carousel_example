@@ -1,0 +1,29 @@
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftSide {
+  padding: 12px 0;
+  > * {
+    margin: 0;
+  }
+}
+
+.rightSide {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionLink {
+  color: #cccccc;
+  margin-right: 12px;
+  font-size: 12px;
+  transition: color .25s ease-out;
+    &:hover {
+      color: #fff;
+      transition: color .25s ease-out;
+    }
+}

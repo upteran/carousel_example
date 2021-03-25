@@ -1,0 +1,202 @@
+@import "./vars.scss";
+
+/* BUTTONS
+===============================*/
+.btn {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  text-decoration: none;
+  outline: none;
+  //width: 128px;
+  line-height: 1;
+  border: 1px solid $white;
+  font-weight: 400;
+  cursor: pointer;
+  box-sizing: border-box;
+  @include rounded_corners(5px);
+  &:hover,
+  &:focus,
+  &:active {
+    text-decoration: none;
+  }
+}
+.uploadButton {
+  pointer-events: none;
+  > input {
+    display: block;
+    pointer-events: auto;
+    cursor: pointer;
+    width: 100%;
+    z-index: 10;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+  }
+}
+.default {
+  composes: btn;
+  background: transparent;
+  color: $white;
+  border-width: 1px;
+  border-style: solid;
+  border-color: gray;
+  transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  &.circle {
+    border: 1px solid $gray;
+    color: $gray;
+    &:hover {
+      border: 1px solid $white;
+      color: $white;
+    }
+    &:active {
+      border: 1px solid #000;
+      color: #000;
+      transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+    }
+  }
+  &:hover {
+    color: #767676;
+  }
+  &:active {
+    color: #5a5a5a;
+  }
+  &.disabled {
+    background: #454545;
+    border-color: #454545;
+    color: #868686;
+  }
+}
+.gold {
+  composes: btn;
+  background: $gold;
+  color: $black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $gold;
+  transition:  background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  @include button-actions(#ffe366, #ffb300, #454545);
+}
+
+.green {
+  composes: btn;
+  background: $green;
+  color: $black;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $green;
+  transition:  background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  @include button-actions(#05b71e, #06c120, #454545);
+}
+
+.transparent {
+  composes: btn;
+  border: none;
+  width: auto;
+  height: auto;
+  min-width: auto;
+  padding: 0;
+  &.md {
+    padding: 0;
+  }
+}
+
+.sm {
+  composes: btn;
+  font-size: 12px;
+  padding: 10px 30px;
+  //&.circle {
+  //  padding: 0;
+  //}
+}
+
+.md {
+  padding: 12px 30px 11px;
+  font-size: 14px;
+}
+
+.lg {
+  composes: btn;
+  font-size: 16px;
+  padding: 15px 30px;
+  //&.circle {
+  //  padding: 20px;
+  //}
+}
+
+.xlg {
+  composes: btn;
+  font-size: 16px;
+  padding: 19px 30px;
+  //&.circle {
+  //  padding: 20px;
+  //}
+}
+
+.leftFloat {
+  float: left;
+}
+.rightFloat {
+  float: right;
+}
+.fullWidth {
+  display: flex;
+  width: 100%;
+}
+
+.circle {
+  border-radius: 50%;
+  min-width: auto;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  cursor: pointer;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  overflow: hidden;
+  :global {
+    .svg-icon-ArrowLeft {
+      margin-left: -4px;
+    }
+    .svg-icon-ArrowRight {
+      margin-right: -4px;
+    }
+  }
+}
+
+.gray {
+  composes: btn;
+  border: 1px solid #2b2b2b;
+  background: #2b2b2b;
+  color: $silver;
+  transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  &:hover {
+    color: $white;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+  &:active {
+    color: $silver;
+    transition: background .25s ease-out, color 0.25s ease-out, border 0.25s ease-out;
+  }
+}
+
+[role='button'] {
+  cursor: pointer;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
