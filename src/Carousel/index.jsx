@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 import cx from "classnames";
 
 import Button from "../Button";
-// import ArrowLeft from "@bb/bb-uikit/lib/SvgIcon/icons/arrowLeft";
-// import ArrowRight from "@bb/bb-uikit/lib/SvgIcon/icons/arrowRight";
+import { ArrowLeft } from "../icons/ArrowLeft";
+import { ArrowRight } from "../icons/ArrowRight";
 import { SectionHeader } from "./SectionHeader";
 
 import { mouseEvents, boundedRange } from "./helpers";
@@ -60,48 +60,47 @@ class SectionTouchCarousel extends Component {
   }
 
   static propTypes = {
-    /** Общее количетсво слайдов */
+    /** total slides count */
     totalSlides: PropTypes.number.isRequired,
-    /** Шаг прокрутки слайдов */
+    /** slide move step  */
     dragStep: PropTypes.number,
-    /** Слайды */
+    /** slides */
     // eslint-disable-next-line react/forbid-prop-types
     children: PropTypes.any.isRequired,
-    /** props для компонента заголовка */
+    /** section header title props */
     titleProps: PropTypes.shape({
-      /** ширина контейнера, фиксированная или ратянутая по ширине родителя  */
+      /** container component prop fluid  */
       containerFluid: PropTypes.bool,
       /** заголовок блока */
       sectionTitle: PropTypes.oneOfType([PropTypes.string, PropTypes.object])
     }),
-    /** callback для событий в контейнере слайдера
+    /** callback events
      * onTouchMove, onMouseMove, onMouseDown, onMouseUp
      * */
     trayProps: PropTypes.objectOf(PropTypes.any),
-    /** значение, указывающее дистанцию, когда активировать движение слайда(sliderSize * moveThreshold) */
+    /** (sliderSize * moveThreshold) */
     moveThreshold: PropTypes.number,
-    /** Добавление listener для события resize и при изменении ширины слайда, переопределяются настройки слайдера */
+    /** onResize listener on and change slides with dynamically */
     responsive: PropTypes.bool,
-    /** Время срабатывания callback на событие resize */
+    /** callback debounce */
     debounceTime: PropTypes.number,
-    /** ширина слайда, модет передаваться постоянное значение, либо использоваться в комбинации с getSlideWidth */
+    /** constant slide with || use with getSlideWidth callback  */
     slideSize: PropTypes.number,
-    /** Функция, отрабатывающая при монтировании компонента и срабатывание resize окна, используется для передачи callback
-     * для вычисления динамически изменяющейся ширины слайда */
+    /** cb that trigger on component mount and fires fn that calc slide with from parent component  */
     getSlideWidth: PropTypes.func,
     carouselLinkProps: PropTypes.shape({
-      /** Доп ссылка на страницу сайта */
+      /** block link */
       linkRoute: PropTypes.string,
-      /** Параметры ссылки */
+      /** link route params */
       linkParams: PropTypes.objectOf(PropTypes.any),
-      /** Текст ссылки */
+      /** link text */
       linkText: PropTypes.oneOfType([PropTypes.string, PropTypes.element])
     }),
-    /** Отступ между слайдами, передается для высчитывания общей ширины контейнера карусели */
+    /** slide padding for wright calc common container width */
     slidePadding: PropTypes.number,
-    /** Ширина для рассчета дельты свайпа, при которой будет осуществляться смещение карусели, можно указать ширину слайда */
+    /** mouse move distance trigger slide change */
     thresholdWidth: PropTypes.number,
-    /** отдает родителю количество необходимых слайдов для текущего фрейма */
+    /** fn return slides count */
     getSlidesCount: PropTypes.func
   };
 
@@ -415,7 +414,7 @@ class SectionTouchCarousel extends Component {
                   onClick={this.onMoveBtnClickHandler(-stepValue)}
                   classes={styles.arrowLeft}
                 >
-                  L{/* <ArrowLeft width="10" height="16" color="inherit" /> */}
+                  <ArrowLeft width="10" height="16" color="inherit" />
                 </Button>
                 <Button
                   color="transparent"
@@ -423,7 +422,7 @@ class SectionTouchCarousel extends Component {
                   onClick={this.onMoveBtnClickHandler(stepValue)}
                   classes={styles.arrowRight}
                 >
-                  R{/* <ArrowRight width="10" height="16" color="inherit" /> */}
+                  <ArrowRight width="10" height="16" color="inherit" />
                 </Button>
               </div>
             ) : null

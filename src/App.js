@@ -1,5 +1,3 @@
-import { useRef } from "react";
-
 import SectionTouchCarousel from "./Carousel";
 import "./styles.css";
 
